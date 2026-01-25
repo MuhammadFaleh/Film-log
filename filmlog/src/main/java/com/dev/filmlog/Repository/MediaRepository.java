@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface MediaRepository extends JpaRepository<Media,Integer> {
 
-    List<Media> findMediaById(Integer id);
+    Media findMediaById(Integer id);
 }

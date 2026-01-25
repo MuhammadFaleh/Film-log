@@ -32,15 +32,15 @@ public class Media {
     @Column(columnDefinition = "varchar(255)")
     private String runtime;
     private Double rating;
-    private enum ageRating{ G,PG, PG_13,R,NC_17,};
-    private enum type{MOVIE,TV_SERIES};
-//    @NotEmpty(message = "Sorry, media age rating can't be empty, please try again")
-//    @Pattern(regexp = "G|PG|PG_13|R|NC_17")
-//    @Column()
-//    private String ageRating;
-//    @NotEmpty(message = "Sorry, media type can't be empty, please try again")
-//    @Pattern(regexp = "MOVIE|TV_SERIES")
-//    @Column()
+//    private enum ageRating{ G,PG, PG_13,R,NC_17,};
+//    private enum type{MOVIE,TV_SERIES};
+    @NotEmpty(message = "Sorry, media age rating can't be empty, please try again")
+    @Pattern(regexp = "G|PG|PG_13|R|NC_17")
+    @Column()
+    private String ageRating;
+    @NotEmpty(message = "Sorry, media type can't be empty, please try again")
+    @Pattern(regexp = "MOVIE|TV_SERIES")
+    @Column()
     private String type;
     @NotNull(message = "Sorry, media release date can't be empty, please try again")
     @Column(columnDefinition = "date")

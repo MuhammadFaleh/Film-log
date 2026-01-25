@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface CrewRepository extends JpaRepository<Crew,Integer> {
 
-    List<Crew> findCrewById(Integer id);
+    Crew findCrewById(Integer id);
 }

@@ -25,12 +25,12 @@ public class ReviewController {
     }
 
     @GetMapping("/get")
-    public ResponseEntity<?> getAllReviews() {
+    public ResponseEntity<?> getAllReviews(@AuthenticationPrincipal User user) {
         return ResponseEntity.status(200).body(reviewService.getAllReviews());
     }
 
     @GetMapping("/get/{reviewId}")
-    public ResponseEntity<?> getReviewById(@PathVariable Integer reviewId) {
+    public ResponseEntity<?> getReviewById(@AuthenticationPrincipal User user,@PathVariable Integer reviewId) {
         return ResponseEntity.status(200).body(reviewService.getReviewById(reviewId));
     }
 

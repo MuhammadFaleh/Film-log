@@ -1,9 +1,11 @@
 package com.dev.filmlog.Controller;
 
 import com.dev.filmlog.Model.Crew;
+import com.dev.filmlog.Model.User;
 import com.dev.filmlog.Service.CrewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,29 +16,29 @@ public class CrewController {
     private final CrewService crewService;
 
     @PostMapping("/add")
-    public ResponseEntity<?> addCrew(@RequestBody Crew crew) {
+    public ResponseEntity<?> addCrew(@AuthenticationPrincipal User user,@RequestBody Crew crew) {
         crewService.addCrew(crew);
         return ResponseEntity.status(200).body("Crew added successfully");
     }
 
     @GetMapping("/get")
-    public ResponseEntity<?> getAllCrew() {
+    public ResponseEntity<?> getAllCrew(@AuthenticationPrincipal User user) {
         return ResponseEntity.status(200).body(crewService.getAllCrew());
     }
 
     @GetMapping("/get/{crewId}")
-    public ResponseEntity<?> getCrewById(@PathVariable Integer crewId) {
+    public ResponseEntity<?> getCrewById(@AuthenticationPrincipal User user,@PathVariable Integer crewId) {
         return ResponseEntity.status(200).body(crewService.getCrewById(crewId));
     }
 
     @PutMapping("/update/{crewId}")
-    public ResponseEntity<?> updateCrew(@PathVariable Integer crewId, @RequestBody Crew crew) {
+    public ResponseEntity<?> updateCrew(@AuthenticationPrincipal User user,@PathVariable Integer crewId, @RequestBody Crew crew) {
         crewService.updateCrew(crewId, crew);
         return ResponseEntity.status(200).body("Crew updated successfully");
     }
 
     @DeleteMapping("/delete/{crewId}")
-    public ResponseEntity<?> deleteCrew(@PathVariable Integer crewId) {
+    public ResponseEntity<?> deleteCrew(@AuthenticationPrincipal User user,@PathVariable Integer crewId) {
         crewService.deleteCrew(crewId);
         return ResponseEntity.status(200).body("Crew deleted successfully");
     }

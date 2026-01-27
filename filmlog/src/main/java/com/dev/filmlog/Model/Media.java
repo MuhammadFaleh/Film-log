@@ -32,8 +32,6 @@ public class Media {
     @Column(columnDefinition = "varchar(255)")
     private String runtime;
     private Double rating;
-//    private enum ageRating{ G,PG, PG_13,R,NC_17,};
-//    private enum type{MOVIE,TV_SERIES};
     @NotEmpty(message = "Sorry, media age rating can't be empty, please try again")
     @Pattern(regexp = "G|PG|PG_13|R|NC_17")
     @Column()

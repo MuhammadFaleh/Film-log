@@ -29,7 +29,6 @@ public class Crew {
     @Size(max = 350, message = "Sorry, crew description can't be more than 350 characters, please try again")
     @Column(columnDefinition = "text check(length(description) <=350)")
     private String description;
-    //    private enum role {DIRECTOR, ACTOR}
     @NotEmpty(message = "Sorry, crew role can't be empty, please try again")
     @Pattern(regexp = "DIRECTOR|ACTOR")
     @Column()

@@ -35,4 +35,7 @@ public class ListMedia {
     @JsonIgnore
     @JoinColumn(name = "user_list_id", nullable = false)
     private UserList userList;
+
+    @ManyToOne
+    private Media media;
     }

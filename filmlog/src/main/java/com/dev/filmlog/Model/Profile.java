@@ -33,4 +33,8 @@ public class Profile {
     @JsonIgnore
     private Set<UserList> userLists;
 
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "profile")
+    @JsonIgnore
+    private Set<Review> reviews;
+
 }

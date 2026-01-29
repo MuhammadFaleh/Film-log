@@ -2,10 +2,7 @@ package com.dev.filmlog.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Set;
 
@@ -14,7 +11,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-
+@Builder
 public class Profile {
     @Id
     private Integer id;
@@ -22,7 +19,7 @@ public class Profile {
     @Column(columnDefinition = "varchar(255) not null")
     private String name;
 
-    @Column(columnDefinition = "text not null check(length(description) <=350)")
+    @Column(columnDefinition = "text check(length(description) <=350)")
     private String description;
 
     // --- relations ---
